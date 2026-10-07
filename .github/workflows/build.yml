@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
+          # Linha do cache removida para evitar o erro
 
       - name: Instalar dependências
         shell: pwsh
@@ -28,7 +28,6 @@ jobs:
       - name: Compilar com PyInstaller
         shell: pwsh
         run: |
-          # --noconsole esconde a janela do terminal (ideal para Tkinter)
           pyinstaller --onefile --noconsole --clean ptz_control.py
 
       - name: Disponibilizar o Executável (.exe)
